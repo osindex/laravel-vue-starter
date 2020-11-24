@@ -89092,8 +89092,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(element_ui__WEBPACK_IMPORTED_MODU
   }
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$config = _config__WEBPACK_IMPORTED_MODULE_10__["default"];
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$provider = 'admin';
-_lang__WEBPACK_IMPORTED_MODULE_2__["default"].locale = _config__WEBPACK_IMPORTED_MODULE_10__["default"][vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$provider].locale ? _config__WEBPACK_IMPORTED_MODULE_10__["default"][vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$provider].locale : 'en';
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$provider = 'admin'; // i18n.locale = config[Vue.prototype.$provider].locale ? config[Vue.prototype.$provider].locale : 'en'
+
+_lang__WEBPACK_IMPORTED_MODULE_2__["default"].locale = 'zh';
 /* eslint-disable no-new */
 
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
@@ -89787,23 +89788,25 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony default export */ __webpack_exports__["default"] = ({
   admin: {
     loginRouteName: 'adminLogin',
     dashboardName: 'adminDashboard',
     dashboardFullPath: '/admin/dashboard',
     appName: {
-      fullName: 'Mojito Admin',
-      abbrName: 'Mojito'
+      fullName: process.env.MIX_APP_NAME || 'admin dashboard',
+      abbrName: process.env.MIX_APP_ABBR_NAME || 'admin'
     },
     locale: 'en'
   },
   guardNames: [{
     label: 'admin',
-    value: 'admin'
+    value: 'admin',
+    "default": true
   }],
   showAuthorGitHubUrl: true
 });
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
@@ -89937,7 +89940,8 @@ __webpack_require__.r(__webpack_exports__);
       permission: "权限",
       permissionGroup: '权限组',
       menu: '菜单',
-      roleAssignPermission: '角色分配权限'
+      roleAssignPermission: '角色分配权限',
+      11: '233'
     }
   },
   closeButton: {
@@ -89965,10 +89969,10 @@ __webpack_require__.r(__webpack_exports__);
   editSuccess: '编辑成功',
   deleteSuccess: '删除成功',
   description: '描述',
-  guardName: 'Guard name',
+  guardName: '守卫',
   permissionGroup: '权限组',
   displayName: '显示名称',
-  icon: 'Icon',
+  icon: '图标',
   sequence: '排序',
   menu: '菜单',
   level: '层级',
@@ -90940,7 +90944,7 @@ __webpack_require__.r(__webpack_exports__);
     permission: 'menu.index'
   },
   component: function component(resolve) {
-    return void __webpack_require__.e(/*! AMD require */ 2).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./index.vue */ "./resources/js/views/admin/menu/index.vue")]; (resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}.bind(this)).catch(__webpack_require__.oe);
+    return void Promise.all(/*! AMD require */[__webpack_require__.e(0), __webpack_require__.e(9)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./index.vue */ "./resources/js/views/admin/menu/index.vue")]; (resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}.bind(this)).catch(__webpack_require__.oe);
   }
 }]);
 
@@ -90990,7 +90994,7 @@ __webpack_require__.r(__webpack_exports__);
     permission: 'permission.index'
   },
   component: function component(resolve) {
-    return void __webpack_require__.e(/*! AMD require */ 0).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./index.vue */ "./resources/js/views/admin/permission/index.vue")]; (resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}.bind(this)).catch(__webpack_require__.oe);
+    return void Promise.all(/*! AMD require */[__webpack_require__.e(0), __webpack_require__.e(8)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./index.vue */ "./resources/js/views/admin/permission/index.vue")]; (resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}.bind(this)).catch(__webpack_require__.oe);
   }
 }]);
 

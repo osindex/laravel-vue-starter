@@ -1,8 +1,11 @@
 <template>
   <div>
     <el-form :inline="true" :model="queryParams"  size="mini">
-      <el-form-item :label="$t('guardName')">
+      <el-form-item v-if="showGuard" :label="$t('guardName')">
         <guard-select :nowValue.sync="queryParams.guard_name"></guard-select>
+      </el-form-item>
+      <el-form-item :label="$t('name')">
+        <el-input v-model="queryParams.name"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="requestData"  icon="el-icon-search">{{ $t('search') }}</el-button>
@@ -26,7 +29,7 @@
       </el-table-column>
       <el-table-column
               prop="uri"
-              label="Router">
+              :label="$t('router')">
       </el-table-column>
       <el-table-column
               prop="permission_name"
@@ -69,7 +72,7 @@
         <el-form-item :label="$t('router')" prop="uri" :label-width="formLabelWidth">
           <el-input v-model="addForm.uri"></el-input>
         </el-form-item>
-        <el-form-item :label="$t('guardName')" prop="guard_name" :label-width="formLabelWidth">
+        <el-form-item v-show="showGuard" :label="$t('guardName')" prop="guard_name" :label-width="formLabelWidth">
           <guard-select :nowValue.sync="addForm.guard_name"></guard-select>
         </el-form-item>
         <el-form-item :label="$t('parentMenu')" prop="parent_id" :label-width="formLabelWidth">
@@ -79,7 +82,7 @@
           <el-input v-model="addForm.permission_name"></el-input>
         </el-form-item>
         <el-form-item :label="$t('icon')" prop="icon" :label-width="formLabelWidth">
-          <el-input v-model="addForm.icon"></el-input>
+          <select-icon v-model="addForm.icon" />
         </el-form-item>
         <el-form-item :label="$t('sequence')" prop="sequence" :label-width="formLabelWidth">
           <el-input v-model.number="addForm.sequence"></el-input>
@@ -99,7 +102,7 @@
         <el-form-item :label="$t('router')" prop="uri" :label-width="formLabelWidth">
           <el-input v-model="editForm.uri"></el-input>
         </el-form-item>
-        <el-form-item :label="$t('guardName')" prop="guard_name" :label-width="formLabelWidth">
+        <el-form-item v-show="showGuard" :label="$t('guardName')" prop="guard_name" :label-width="formLabelWidth">
           <guard-select :nowValue.sync="editForm.guard_name"></guard-select>
         </el-form-item>
         <el-form-item :label="$t('parentMenu')" prop="parent_id" :label-width="formLabelWidth">
@@ -109,7 +112,7 @@
           <el-input v-model="editForm.permission_name"></el-input>
         </el-form-item>
         <el-form-item :label="$t('icon')" prop="icon" :label-width="formLabelWidth">
-          <el-input v-model="editForm.icon"></el-input>
+          <select-icon v-model="editForm.icon" />
         </el-form-item>
         <el-form-item :label="$t('sequence')" prop="sequence" :label-width="formLabelWidth">
           <el-input v-model.number="editForm.sequence"></el-input>
@@ -124,23 +127,27 @@
 </template>
 
 <script>
+  import SelectIcon from '../../../components/Select/SelectIcon'
   import GuardSelect from '../../../components/Select/Guard'
   import { getMenuList, addMenu, editMenu, deleteMenu } from '../../../api/menu'
   import { tableDefaultData, editSuccess, addSuccess, deleteSuccess } from '../../../libs/tableDataHandle'
   import MenuCascader from '../../../components/Cascader/Menu'
-  import { hasPermission } from '../../../libs/permission'
+  import { hasPermission ,showGuard ,defaultGuard } from '../../../libs/permission'
 
   export default {
     name: 'adminUserIndex',
     components: {
       GuardSelect,
-      MenuCascader
+      MenuCascader,
+      SelectIcon
     },
     data: () => ({
       ...tableDefaultData(),
       tableListData: [],
       foldList: [],
-      addForm: {},
+      addForm: {
+        guard_name: defaultGuard()
+      },
       editForm: {},
       rules: {
         name: [
@@ -152,7 +159,7 @@
           { min: 1, max: 255 }
         ],
         guard_name: [
-          { required: true },
+          { required: showGuard() },
           { min: 1, max: 255 }
         ],
         parent_id: [

@@ -9,6 +9,7 @@ export default {
       permissionGroup: '权限组',
       menu: '菜单',
       roleAssignPermission: '角色分配权限',
+            11: '233',
     }
   },
   closeButton: {
@@ -36,10 +37,10 @@ export default {
   editSuccess: '编辑成功',
   deleteSuccess: '删除成功',
   description: '描述',
-  guardName: 'Guard name',
+  guardName: '守卫',
   permissionGroup: '权限组',
   displayName: '显示名称',
-  icon: 'Icon',
+  icon: '图标',
   sequence: '排序',
   menu: '菜单',
   level: '层级',

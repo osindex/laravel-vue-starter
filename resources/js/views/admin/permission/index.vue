@@ -94,7 +94,7 @@
         <el-row>
           <el-col :span="12">
             <el-form-item :label="$t('icon')" prop="icon" :label-width="formLabelWidth">
-              <el-input v-model="addForm.icon"></el-input>
+              <select-icon v-model="addForm.icon" />
             </el-form-item>
           </el-col>
           <el-col :span="12">
@@ -142,7 +142,7 @@
         <el-row>
           <el-col :span="12">
             <el-form-item :label="$t('icon')" prop="icon" :label-width="formLabelWidth">
-              <el-input v-model="editForm.icon"></el-input>
+            <select-icon v-model="editForm.icon" />
             </el-form-item>
           </el-col>
           <el-col :span="12">
@@ -164,6 +164,7 @@
 </template>
 
 <script>
+  import SelectIcon from '../../../components/Select/SelectIcon'
   import { getPermissionList, addPermission, editPermission, deletePermission } from '../../../api/permission'
   import { responseDataFormat, tableDefaultData, editSuccess, addSuccess, deleteSuccess } from '../../../libs/tableDataHandle'
   import GuardSelect from '../../../components/Select/Guard'
@@ -174,7 +175,7 @@
   export default {
     name: 'permissionIndex',
     components: {
-      PermissionGroupSelect, GuardSelect
+      PermissionGroupSelect, GuardSelect, SelectIcon
     },
     mixins:[queryParams],
     data() {
