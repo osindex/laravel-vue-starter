@@ -1,0 +1,101 @@
+/* 改变主题色变量 */
+$--color-primary: #009FE8;
+$--color-success: #A4D65E;
+$--color-info: #AFB1B4;
+
+
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+@import "~element-ui/packages/theme-chalk/src/index";
+
+$input-w: 185px;
+
+.avue-controller {
+    font-size: 12px;
+}
+@each $position in left, right {
+  .f-#{$position} {
+    float: #{$position}
+  }
+}
+@for $i from 1 through 50 {
+    @if $i % 5==0 {
+        .mt-#{$i} {
+            margin-top: 1px * $i !important;
+        }
+
+        .mr-#{$i} {
+            margin-right: 1px * $i !important;
+        }
+
+        .mb-#{$i} {
+            margin-bottom: 1px * $i !important;
+        }
+
+        .ml-#{$i} {
+            margin-left: 1px * $i !important;
+        }
+
+        .pt-#{$i} {
+            padding-top: 1px * $i !important;
+        }
+
+        .pr-#{$i} {
+            padding-right: 1px * $i !important;
+        }
+
+        .pb-#{$i} {
+            padding-bottom: 1px * $i !important;
+        }
+
+        .pl-#{$i} {
+            padding-left: 1px * $i !important;
+        }
+    }
+}
+
+
+//全局滚动条样式
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+// 内层滚动槽
+::-webkit-scrollbar-track-piece {
+  background: #d3dce6;
+  border-radius: 4.5px;
+}
+//外层轨道
+::-webkit-scrollbar-track {
+  border-radius: 4.5px;
+}
+//滚动的滑块
+::-webkit-scrollbar-thumb {
+  background: #909399;
+  border-radius: 4.5px;
+}
+.dialog-component .el-dialog__body{
+  padding: 10px 20px;
+}
+.w-input {
+  width: $input-w !important;
+}
+.w-input-select {
+  width: 200px !important;
+}
+.w-all {
+  width: 100% !important;
+}
+.w-half {
+  width: 50% !important;
+}
+
+.card-top-color {
+  border: none;//先初始化覆盖以前的全部样式
+  border-top: 4px #409EFF solid;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.el-drawer.btt {
+  overflow-y:auto;
+}

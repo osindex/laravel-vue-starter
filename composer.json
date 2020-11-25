@@ -14,7 +14,8 @@
         "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
         "laravel/framework": "^7.29",
         "laravel/tinker": "^2.5",
-        "moell/mojito": "^2.0.1"
+        "moell/mojito": "dev-mix",
+        "osi/laravel-controller-trait": "^2.2"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
@@ -66,8 +67,8 @@
     },
     "repositories": [
         {
-            "type": "path",
-            "url": "ext/mojito"
+            "type": "vcs",
+            "url": "https://github.com/osindex/mojito.git"
         }
     ]
 }

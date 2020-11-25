@@ -8,8 +8,9 @@ export default {
       permission: "权限",
       permissionGroup: '权限组',
       menu: '菜单',
-      roleAssignPermission: '角色分配权限',
       roleAssignMenu: '角色分配菜单',
+      roleAssignPermission: '角色分配权限',
+      test: 'Test',
     }
   },
   closeButton: {

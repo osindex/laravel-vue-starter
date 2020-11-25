@@ -5,6 +5,9 @@ import permission from '../views/admin/permission/routes'
 import permissionGroup from '../views/admin/permission-group/routes'
 import menu from '../views/admin/menu/routes'
 import adminDashboard from '../views/admin/dashboard/routes'
+import test3 from '../views/admin/test3/routes'
+import test2 from '../views/admin/test2/routes'
+import test from '../views/admin/test/routes'
 import adminLogin from '../views/admin/login/routes'
 
 export default [
@@ -18,7 +21,7 @@ export default [
     },
     component: Admin,
     children: [
-      ...adminDashboard, ...adminUser, ...role, ...permission, ...permissionGroup, ...menu
+      ...adminDashboard, ...adminUser, ...role, ...permission, ...permissionGroup, ...menu, ...test, ...test2, ...test3
     ]
   },
   ...adminLogin,

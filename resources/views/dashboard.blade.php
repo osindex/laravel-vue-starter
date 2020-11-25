@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mojito admin</title>
+    <title>{{env('APP_NAME')}}</title>
 </head>
 <body>
 <div id="app">

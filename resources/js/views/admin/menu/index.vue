@@ -48,6 +48,7 @@
       </el-table-column>
 
       <el-table-column
+              width="210px"
               align="center"
               :label="$t('actions')">
         <template slot-scope="scope">

@@ -17,17 +17,12 @@
               <i class="el-icon-arrow-down el-icon--right"></i>
             </el-button>
             <el-dropdown-menu slot="dropdown">
-              <a href="https://github.com/moell-peng/mojito" target="_blank" v-if="showAuthorGitHubUrl">
-                <el-dropdown-item>
-                  Github
-                </el-dropdown-item>
-              </a>
               <el-dropdown-item @click.native="openDialogChangePasswordForm">{{ $t('changePassword') }} </el-dropdown-item>
               <el-dropdown-item @click.native="logout">Logout</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </div>
-        <!--<div class="lang">
+        <div v-if="0" class="lang">
           <el-dropdown>
             <span class="el-dropdown-link">
               语言<i class="el-icon-arrow-down el-icon&#45;&#45;right"></i>
@@ -36,7 +31,7 @@
               <el-dropdown-item>中文简体</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
-        </div>-->
+        </div>
       </el-col>
     </el-row>
     <el-dialog :title="$t('changePassword')" :visible.sync="dialogChangePasswordFormVisible" width="30%">

@@ -11,7 +11,7 @@ export default {
       abbrName: process.env.MIX_APP_ABBR_NAME || 'admin'
     },
 
-    locale: 'en'
+    locale: 'zh'
   },
   guardNames: [
     {

@@ -8,8 +8,9 @@ export default {
       permission: "Permission",
       permissionGroup: "Permission Group",
       menu: 'Menu',
-      roleAssignPermission: 'Role assignment authority',
       roleAssignMenu: 'Role assignment menu',
+      roleAssignPermission: 'Role assignment authority',
+      test: 'Test',
     }
   },
   closeButton: {
