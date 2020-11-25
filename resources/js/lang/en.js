@@ -9,6 +9,7 @@ export default {
       permissionGroup: "Permission Group",
       menu: 'Menu',
       roleAssignPermission: 'Role assignment authority',
+      roleAssignMenu: 'Role assignment menu',
     }
   },
   closeButton: {
@@ -32,6 +33,7 @@ export default {
   confirm: 'Confirm',
   cancel: 'Cancel',
   success: 'Success',
+  refresh: 'Refresh',
   createSuccess: 'Created successfully',
   editSuccess: 'Successful editing',
   deleteSuccess: 'Successfully deleted',
@@ -49,7 +51,12 @@ export default {
   topMenu: 'Top menu',
   assignPermission: 'Assign permission',
   assignRole: 'Assign role',
+  assignMenu: 'Assign menu',
+  globalDisplay: 'Display any role',
   selectAll: 'Select all',
   unselectAll: 'Unselect all',
   changePassword: 'Change password',
+  yes: 'Yes',
+  no: 'No',
+  done: 'done',
 }

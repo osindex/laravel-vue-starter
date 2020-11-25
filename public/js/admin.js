@@ -89829,7 +89829,8 @@ __webpack_require__.r(__webpack_exports__);
       permission: "Permission",
       permissionGroup: "Permission Group",
       menu: 'Menu',
-      roleAssignPermission: 'Role assignment authority'
+      roleAssignPermission: 'Role assignment authority',
+      roleAssignMenu: 'Role assignment menu'
     }
   },
   closeButton: {
@@ -89853,6 +89854,7 @@ __webpack_require__.r(__webpack_exports__);
   confirm: 'Confirm',
   cancel: 'Cancel',
   success: 'Success',
+  refresh: 'Refresh',
   createSuccess: 'Created successfully',
   editSuccess: 'Successful editing',
   deleteSuccess: 'Successfully deleted',
@@ -89870,9 +89872,14 @@ __webpack_require__.r(__webpack_exports__);
   topMenu: 'Top menu',
   assignPermission: 'Assign permission',
   assignRole: 'Assign role',
+  assignMenu: 'Assign menu',
+  globalDisplay: 'Display any role',
   selectAll: 'Select all',
   unselectAll: 'Unselect all',
-  changePassword: 'Change password'
+  changePassword: 'Change password',
+  yes: 'Yes',
+  no: 'No',
+  done: 'done'
 });
 
 /***/ }),
@@ -89941,7 +89948,7 @@ __webpack_require__.r(__webpack_exports__);
       permissionGroup: '权限组',
       menu: '菜单',
       roleAssignPermission: '角色分配权限',
-      11: '233'
+      roleAssignMenu: '角色分配菜单'
     }
   },
   closeButton: {
@@ -89965,6 +89972,7 @@ __webpack_require__.r(__webpack_exports__);
   confirm: '确认',
   cancel: '取消',
   success: '成功',
+  refresh: '刷新',
   createSuccess: '创建成功',
   editSuccess: '编辑成功',
   deleteSuccess: '删除成功',
@@ -89982,9 +89990,14 @@ __webpack_require__.r(__webpack_exports__);
   topMenu: '顶级菜单',
   assignPermission: '分配权限',
   assignRole: '分配角色',
+  assignMenu: '分配菜单',
+  globalDisplay: '全局显示',
   selectAll: '全选',
   unselectAll: '全不选',
-  changePassword: '修改密码'
+  changePassword: '修改密码',
+  yes: '是',
+  no: '否',
+  done: '完成'
 });
 
 /***/ }),
@@ -90143,6 +90156,11 @@ var Notify = /*#__PURE__*/function () {
     key: "deleteSuccess",
     value: function deleteSuccess(th) {
       this.success(th.$t('deleteSuccess'), th);
+    }
+  }, {
+    key: "doneSuccess",
+    value: function doneSuccess(th) {
+      this.success(th.$t('done'), th);
     }
   }]);
 
@@ -90831,7 +90849,7 @@ __webpack_require__.r(__webpack_exports__);
     notClosable: true
   },
   component: function component(resolve) {
-    return void __webpack_require__.e(/*! AMD require */ 7).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./index.vue */ "./resources/js/views/admin/dashboard/index.vue")]; (resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}.bind(this)).catch(__webpack_require__.oe);
+    return void __webpack_require__.e(/*! AMD require */ 8).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./index.vue */ "./resources/js/views/admin/dashboard/index.vue")]; (resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}.bind(this)).catch(__webpack_require__.oe);
   }
 }]);
 
@@ -90850,7 +90868,7 @@ __webpack_require__.r(__webpack_exports__);
   name: 'adminLogin',
   path: '/admin/login',
   component: function component(resolve) {
-    return void __webpack_require__.e(/*! AMD require */ 6).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./index.vue */ "./resources/js/views/admin/login/index.vue")]; (resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}.bind(this)).catch(__webpack_require__.oe);
+    return void __webpack_require__.e(/*! AMD require */ 7).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./index.vue */ "./resources/js/views/admin/login/index.vue")]; (resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}.bind(this)).catch(__webpack_require__.oe);
   }
 }]);
 
@@ -90944,7 +90962,7 @@ __webpack_require__.r(__webpack_exports__);
     permission: 'menu.index'
   },
   component: function component(resolve) {
-    return void Promise.all(/*! AMD require */[__webpack_require__.e(0), __webpack_require__.e(9)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./index.vue */ "./resources/js/views/admin/menu/index.vue")]; (resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}.bind(this)).catch(__webpack_require__.oe);
+    return void Promise.all(/*! AMD require */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./index.vue */ "./resources/js/views/admin/menu/index.vue")]; (resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}.bind(this)).catch(__webpack_require__.oe);
   }
 }]);
 
@@ -90969,7 +90987,7 @@ __webpack_require__.r(__webpack_exports__);
     permission: 'permission-group.index'
   },
   component: function component(resolve) {
-    return void __webpack_require__.e(/*! AMD require */ 5).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./index.vue */ "./resources/js/views/admin/permission-group/index.vue")]; (resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}.bind(this)).catch(__webpack_require__.oe);
+    return void __webpack_require__.e(/*! AMD require */ 6).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./index.vue */ "./resources/js/views/admin/permission-group/index.vue")]; (resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}.bind(this)).catch(__webpack_require__.oe);
   }
 }]);
 
@@ -90994,7 +91012,7 @@ __webpack_require__.r(__webpack_exports__);
     permission: 'permission.index'
   },
   component: function component(resolve) {
-    return void Promise.all(/*! AMD require */[__webpack_require__.e(0), __webpack_require__.e(8)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./index.vue */ "./resources/js/views/admin/permission/index.vue")]; (resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}.bind(this)).catch(__webpack_require__.oe);
+    return void Promise.all(/*! AMD require */[__webpack_require__.e(0), __webpack_require__.e(3)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./index.vue */ "./resources/js/views/admin/permission/index.vue")]; (resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}.bind(this)).catch(__webpack_require__.oe);
   }
 }]);
 
@@ -91028,7 +91046,7 @@ __webpack_require__.r(__webpack_exports__);
       permission: 'role.assign-permissions'
     },
     component: function component(resolve) {
-      return void __webpack_require__.e(/*! AMD require */ 4).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./permission.vue */ "./resources/js/views/admin/role/permission.vue")]; (resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}.bind(this)).catch(__webpack_require__.oe);
+      return void __webpack_require__.e(/*! AMD require */ 5).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./permission.vue */ "./resources/js/views/admin/role/permission.vue")]; (resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}.bind(this)).catch(__webpack_require__.oe);
     }
   }, {
     name: 'roleIndex',
@@ -91040,7 +91058,18 @@ __webpack_require__.r(__webpack_exports__);
       permission: 'role.index'
     },
     component: function component(resolve) {
-      return void __webpack_require__.e(/*! AMD require */ 3).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./index.vue */ "./resources/js/views/admin/role/index.vue")]; (resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}.bind(this)).catch(__webpack_require__.oe);
+      return void __webpack_require__.e(/*! AMD require */ 2).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./index.vue */ "./resources/js/views/admin/role/index.vue")]; (resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}.bind(this)).catch(__webpack_require__.oe);
+    }
+  }, {
+    name: 'roleMenu',
+    path: 'assign-menus/:id/:guardName',
+    meta: {
+      provider: 'admin',
+      title: 'roleAssignMenu',
+      permission: 'role.assign-menus'
+    },
+    component: function component(resolve) {
+      return void Promise.all(/*! AMD require */[__webpack_require__.e(0), __webpack_require__.e(9)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./menu.vue */ "./resources/js/views/admin/role/menu.vue")]; (resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}.bind(this)).catch(__webpack_require__.oe);
     }
   }]
 }]);

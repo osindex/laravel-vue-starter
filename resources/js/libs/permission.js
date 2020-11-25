@@ -15,5 +15,5 @@ export const showGuard = () => {
 
 export const defaultGuard = () => {
   const guard = config.guardNames.find(e=>e.default)
-  return guard.value
+  return guard.value || 'admin'
 }

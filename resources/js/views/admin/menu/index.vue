@@ -132,7 +132,7 @@
   import { getMenuList, addMenu, editMenu, deleteMenu } from '../../../api/menu'
   import { tableDefaultData, editSuccess, addSuccess, deleteSuccess } from '../../../libs/tableDataHandle'
   import MenuCascader from '../../../components/Cascader/Menu'
-  import { hasPermission ,showGuard ,defaultGuard } from '../../../libs/permission'
+  import { hasPermission, showGuard, defaultGuard } from '../../../libs/permission'
 
   export default {
     name: 'adminUserIndex',
@@ -143,6 +143,7 @@
     },
     data: () => ({
       ...tableDefaultData(),
+      showGuard: showGuard(),
       tableListData: [],
       foldList: [],
       addForm: {

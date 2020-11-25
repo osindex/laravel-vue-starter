@@ -9,7 +9,7 @@ export default {
       permissionGroup: '权限组',
       menu: '菜单',
       roleAssignPermission: '角色分配权限',
-            11: '233',
+      roleAssignMenu: '角色分配菜单',
     }
   },
   closeButton: {
@@ -33,6 +33,7 @@ export default {
   confirm: '确认',
   cancel: '取消',
   success: '成功',
+  refresh: '刷新',
   createSuccess: '创建成功',
   editSuccess: '编辑成功',
   deleteSuccess: '删除成功',
@@ -50,7 +51,12 @@ export default {
   topMenu: '顶级菜单',
   assignPermission: '分配权限',
   assignRole: '分配角色',
+  assignMenu: '分配菜单',
+  globalDisplay: '全局显示',
   selectAll: '全选',
   unselectAll: '全不选',
   changePassword: '修改密码',
+  yes: '是',
+  no: '否',
+  done: '完成',
 }
