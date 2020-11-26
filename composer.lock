@@ -1813,12 +1813,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/osindex/mojito.git",
-                "reference": "d7a804fc389ae6d82eb34f4621b493cfb33731b4"
+                "reference": "e7d955b7c894fada08bdfa25655b0807d51030d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/osindex/mojito/zipball/d7a804fc389ae6d82eb34f4621b493cfb33731b4",
-                "reference": "d7a804fc389ae6d82eb34f4621b493cfb33731b4",
+                "url": "https://api.github.com/repos/osindex/mojito/zipball/e7d955b7c894fada08bdfa25655b0807d51030d9",
+                "reference": "e7d955b7c894fada08bdfa25655b0807d51030d9",
                 "shasum": ""
             },
             "require": {
@@ -1875,9 +1875,9 @@
                 "vue admin"
             ],
             "support": {
-                "source": "https://github.com/osindex/mojito/tree/3.0.0"
+                "source": "https://github.com/osindex/mojito/tree/mix"
             },
-            "time": "2020-11-25T08:26:54+00:00"
+            "time": "2020-11-25T10:15:44+00:00"
         },
         {
             "name": "monolog/monolog",

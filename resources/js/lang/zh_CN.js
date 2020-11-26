@@ -10,6 +10,7 @@ export default {
       menu: '菜单',
       roleAssignMenu: '角色分配菜单',
       roleAssignPermission: '角色分配权限',
+            test2: '测试2',
       test: 'Test',
     }
   },

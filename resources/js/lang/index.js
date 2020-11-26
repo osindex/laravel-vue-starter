@@ -4,15 +4,19 @@ import elementEnLocale from 'element-ui/lib/locale/lang/en' // element-ui lang
 import elementZhLocale from 'element-ui/lib/locale/lang/zh-CN'// element-ui lang
 import enLocale from './en'
 import zhLocale from './zh_CN'
+import avuezh from './avue/zh'
+import avueen from './avue/en'
 
 Vue.use(VueI18n)
 
 const messages = {
   en: {
+    ...avueen,
     ...enLocale,
     ...elementEnLocale
   },
   zh: {
+    ...avuezh,
     ...zhLocale,
     ...elementZhLocale
   }
