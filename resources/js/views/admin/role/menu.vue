@@ -112,8 +112,8 @@ export default {
       const getMenuLists = getMenuList(this.queryParams)
       const roleMenus = roleMenu(this.$route.params.id)
       Promise.all([getMenuLists, roleMenus]).then(result => {
-        this.roleMenus = result[1].data.data
-        this.tableListData = this.setAssigned(result[0].data.data)
+        this.roleMenus = result[1].data
+        this.tableListData = this.setAssigned(result[0].data)
         this.loading = false
       })
     },

@@ -17,7 +17,30 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('files/upload', 'Controller@upload', [
+    'as' => 'files.upload',
+    'middleware' => ['auth:sanctum'],
+]);
+Route::group(['prefix' => 'use'], function ($router) {
+    $router->get('wechat', 'AppController@wechat');
 
-Route::group(['prefix' => 'test', 'middleware' => ['auth:sanctum']], function ($router) {
+    $router->post('openid', 'AppController@openid');
+    $router->post('bind', 'AppController@bind');
+});
+Route::group(['middleware' => ['auth:sanctum']], function ($router) {
     $router->resource('test', 'TestController');
+    $router->post('use/unbind', 'AppController@unbind');
+
+    $router->get('setting_get/{key}', 'AppController@settingGet');
+    $router->post('setting_set', 'AppController@settingSet');
+    $router->delete('setting_del/{key}', 'AppController@settingDel');
+
+    $router->get('category/tree', 'CategoryController@tree');
+    $router->resources([
+        'category' => 'CategoryController',
+        'article' => 'ArticleController',
+        'slider_group' => 'SliderGroupController',
+        'slider' => 'SliderController',
+    ]);
+
 });

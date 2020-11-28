@@ -10,8 +10,11 @@ export default {
       menu: '菜单',
       roleAssignMenu: '角色分配菜单',
       roleAssignPermission: '角色分配权限',
-            test2: '测试2',
+            article: '资讯内容',
+            category: '栏目设置',
+            content: '内容管理',
       test: 'Test',
+      setting: '设置',
     }
   },
   closeButton: {
@@ -29,6 +32,7 @@ export default {
   edit: '编辑',
   delete: '删除',
   add: '添加',
+  username: '用户名/邮箱',
   password: '密码',
   oldPassword: '旧密码',
   confirmPassword: '确认密码',
@@ -58,7 +62,31 @@ export default {
   selectAll: '全选',
   unselectAll: '全不选',
   changePassword: '修改密码',
+  logout: '退出',
   yes: '是',
   no: '否',
-  done: '完成',
+
+  login: {
+    title: '后台登陆',
+    submit: '登陆',
+    reset: '重置'
+  },
+  fail: '失败',
+  error: '错误',
+  areyou: '是否确认',
+  createError: '创建失败',
+  editError: '编辑失败',
+  deleteError: '删除失败',
+  notice: '提示',
+  plsselect: '请选择需要操作的项目',
+  delbatch: '批量删除成功',
+  input: '输入',
+  done: '完成操作',
+  refresh: '刷新',
+  siteName: '站点名称',
+  logo: 'LOGO',
+  company: '公司名称',
+  icp: '备案号',
+  save: '保存',
+  reset: '重置'
 }

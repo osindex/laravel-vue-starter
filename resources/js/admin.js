@@ -28,7 +28,9 @@ Vue.use(globalPlugin)
 Vue.use(Avue, { i18n: (key, value) => i18n.t(key, value) })
 
 Vue.prototype.$config = config
+Vue.prototype.$uploadUrl = '/api/files/upload'
 Vue.prototype.$provider = 'admin'
+// 默认
 i18n.locale = config[Vue.prototype.$provider].locale ? config[Vue.prototype.$provider].locale : 'zh'
 /* eslint-disable no-new */
 const app = new Vue({

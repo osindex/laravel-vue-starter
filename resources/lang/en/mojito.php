@@ -7,4 +7,5 @@ return [
     'Permission' => 'Permission',
     'PermissionGroup' => 'Permission Group',
     'Menu' => 'Menu',
+    'Setting' => 'Setting',
 ];

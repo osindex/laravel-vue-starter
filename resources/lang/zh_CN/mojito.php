@@ -7,4 +7,5 @@ return [
     'Permission' => '权限',
     'PermissionGroup' => '权限组',
     'Menu' => '菜单',
+    'Setting' => '设置',
 ];

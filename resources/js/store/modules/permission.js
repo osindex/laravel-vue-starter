@@ -26,7 +26,7 @@ const actions = {
   loadPermissions ( { commit }) {
     return loadPermissions()
       .then(response => {
-        commit('SET_PERMISSIONS', response.data.data)
+        commit('SET_PERMISSIONS', response.data)
         Promise.resolve()
       })
       .catch( error => {

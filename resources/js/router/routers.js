@@ -1,14 +1,17 @@
 import Admin from '../views/admin/main/index'
 import adminUser from '../views/admin/user/routes'
+import proxy from './proxy'
+
 import role from '../views/admin/role/routes'
 import permission from '../views/admin/permission/routes'
 import permissionGroup from '../views/admin/permission-group/routes'
 import menu from '../views/admin/menu/routes'
 import adminDashboard from '../views/admin/dashboard/routes'
-import test3 from '../views/admin/test3/routes'
-import test2 from '../views/admin/test2/routes'
+import article from '../views/admin/content/article/routes'
+import category from '../views/admin/content/category/routes'
 import test from '../views/admin/test/routes'
 import adminLogin from '../views/admin/login/routes'
+import setting from '../views/admin/setting/routes'
 
 export default [
   {
@@ -21,7 +24,8 @@ export default [
     },
     component: Admin,
     children: [
-      ...adminDashboard, ...adminUser, ...role, ...permission, ...permissionGroup, ...menu, ...test, ...test2, ...test3
+      proxy,
+      ...adminDashboard, ...adminUser, ...role, ...permission, ...permissionGroup, ...menu, ...setting, ...test, ...category, ...article
     ]
   },
   ...adminLogin,

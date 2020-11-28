@@ -1,0 +1,14 @@
+apps:
+  - name: "laravel-queue-worker"
+    script: artisan
+    watch: false
+    exec_mode: fork
+    interpreter: php
+    args:
+    - queue:work
+    - --tries=3
+    - --daemon
+    restart_delay: 3000
+    error_file: ./storage/logs/queue.error.log
+    out_file: ./storage/logs/queue.out.log
+    pid_file: ./storage/app/queue.pid

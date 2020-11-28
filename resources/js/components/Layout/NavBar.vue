@@ -41,7 +41,7 @@
     },
     created () {
       myMenu().then(response => {
-        this.menuItems = response.data.data
+        this.menuItems = response.data
       })
     },
     methods: {

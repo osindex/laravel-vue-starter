@@ -1,12 +1,12 @@
 export default [
   {
-    name: 'test2Index',
-    path: 'test2',
+    name: 'categoryIndex',
+    path: 'content/category',
     meta: {
       provider: 'admin',
-      title: 'test2',
+      title: 'category',
       cache: true,
-      permission: 'test2.index'
+      permission: 'category'
     },
     component: resolve => void(require(['./index.vue'], resolve))
   }

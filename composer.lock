@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "55b893b20e07cfa0defd89c974056d13",
+    "content-hash": "d8c6f1da926705fc9e6d45bb83ac2c2b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1227,6 +1227,77 @@
             "time": "2020-09-30T07:37:11+00:00"
         },
         {
+            "name": "hongyukeji/laravel-settings",
+            "version": "v2.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hongyukeji/laravel-settings.git",
+                "reference": "bdc271f5644946ecd1cef03c5d8543e025074469"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hongyukeji/laravel-settings/zipball/bdc271f5644946ecd1cef03c5d8543e025074469",
+                "reference": "bdc271f5644946ecd1cef03c5d8543e025074469",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "illuminate/console": "^5.2|^6.0|^7.0",
+                "illuminate/database": "^5.2|^6.0|^7.0",
+                "illuminate/filesystem": "^5.2|^6.0|^7.0",
+                "illuminate/support": "^5.2|^6.0|^7.0",
+                "php": "^5.5|^7.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Hongyukeji\\LaravelSettings\\Providers\\SettingsServiceProvider"
+                    ],
+                    "aliases": {
+                        "Settings": "Hongyukeji\\LaravelSettings\\Facades\\Settings"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Hongyukeji\\LaravelSettings\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "shadow",
+                    "email": "admin@hongyuvip.com"
+                }
+            ],
+            "description": "Persistent settings package for Laravel framework.",
+            "keywords": [
+                "Settings",
+                "laravel",
+                "persistent settings"
+            ],
+            "support": {
+                "issues": "https://github.com/hongyukeji/laravel-settings/issues",
+                "source": "https://github.com/hongyukeji/laravel-settings/tree/v2.2.2"
+            },
+            "time": "2020-11-16T10:09:17+00:00"
+        },
+        {
             "name": "laravel/framework",
             "version": "v7.29.3",
             "source": {
@@ -1813,12 +1884,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/osindex/mojito.git",
-                "reference": "e7d955b7c894fada08bdfa25655b0807d51030d9"
+                "reference": "0c152931f5f4ec4e89ba74413a90d69d20482eda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/osindex/mojito/zipball/e7d955b7c894fada08bdfa25655b0807d51030d9",
-                "reference": "e7d955b7c894fada08bdfa25655b0807d51030d9",
+                "url": "https://api.github.com/repos/osindex/mojito/zipball/0c152931f5f4ec4e89ba74413a90d69d20482eda",
+                "reference": "0c152931f5f4ec4e89ba74413a90d69d20482eda",
                 "shasum": ""
             },
             "require": {
@@ -1877,7 +1948,7 @@
             "support": {
                 "source": "https://github.com/osindex/mojito/tree/mix"
             },
-            "time": "2020-11-25T10:15:44+00:00"
+            "time": "2020-11-27T15:29:41+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2269,6 +2340,64 @@
                 "source": "https://github.com/osindex/LaravelControllerTrait/tree/2.2.1"
             },
             "time": "2020-05-12T08:02:01+00:00"
+        },
+        {
+            "name": "overtrue/laravel-uploader",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/overtrue/laravel-uploader.git",
+                "reference": "0b764b62ad3175243ad687cc214589be731fd54c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/overtrue/laravel-uploader/zipball/0b764b62ad3175243ad687cc214589be731fd54c",
+                "reference": "0b764b62ad3175243ad687cc214589be731fd54c",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "ext-json": "*",
+                "laravel/framework": "5.8.*||~6.0||~7.0||~8.0",
+                "php": ">=7.1.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "\\Overtrue\\LaravelUploader\\UploadServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelUploader": "\\Overtrue\\LaravelUploader\\LaravelUploader"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Overtrue\\LaravelUploader\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "overtrue",
+                    "email": "i@overtrue.me"
+                }
+            ],
+            "description": "An upload component for Laravel.",
+            "support": {
+                "issues": "https://github.com/overtrue/laravel-uploader/issues",
+                "source": "https://github.com/overtrue/laravel-uploader/tree/1.3.0"
+            },
+            "time": "2020-09-24T16:17:12+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -3001,16 +3130,16 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "3.17.0",
+            "version": "3.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "35d40a45e49f5713f477823b571e05ef6a3a0394"
+                "reference": "1c51a5fa12131565fe3860705163e53d7a26258a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/35d40a45e49f5713f477823b571e05ef6a3a0394",
-                "reference": "35d40a45e49f5713f477823b571e05ef6a3a0394",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/1c51a5fa12131565fe3860705163e53d7a26258a",
+                "reference": "1c51a5fa12131565fe3860705163e53d7a26258a",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3024,7 +3153,7 @@
                 "illuminate/container": "^5.8|^6.0|^7.0|^8.0",
                 "illuminate/contracts": "^5.8|^6.0|^7.0|^8.0",
                 "illuminate/database": "^5.8|^6.0|^7.0|^8.0",
-                "php": "^7.2.5"
+                "php": "^7.2.5|^8.0"
             },
             "require-dev": {
                 "orchestra/testbench": "^3.8|^4.0|^5.0|^6.0",
@@ -3073,15 +3202,15 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-permission/issues",
-                "source": "https://github.com/spatie/laravel-permission/tree/3.17.0"
+                "source": "https://github.com/spatie/laravel-permission/tree/3.18.0"
             },
             "funding": [
                 {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
+                    "url": "https://github.com/spatie",
+                    "type": "github"
                 }
             ],
-            "time": "2020-09-16T16:47:18+00:00"
+            "time": "2020-11-09T14:08:36+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6778,16 +6907,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "7.0.10",
+            "version": "7.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "f1884187926fbb755a9aaf0b3836ad3165b478bf"
+                "reference": "52f55786aa2e52c26cd9e2db20aff2981e0f7399"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/f1884187926fbb755a9aaf0b3836ad3165b478bf",
-                "reference": "f1884187926fbb755a9aaf0b3836ad3165b478bf",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/52f55786aa2e52c26cd9e2db20aff2981e0f7399",
+                "reference": "52f55786aa2e52c26cd9e2db20aff2981e0f7399",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -6845,9 +6974,15 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/7.0.10"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/7.0.12"
             },
-            "time": "2019-11-20T13:55:58+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-27T06:08:35+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -7081,16 +7216,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "8.5.9",
+            "version": "8.5.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "f5c8a5dd5e7e8d68d7562bfb48d47287d33937d6"
+                "reference": "3123601e3b29339b20129acc3f989cfec3274566"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f5c8a5dd5e7e8d68d7562bfb48d47287d33937d6",
-                "reference": "f5c8a5dd5e7e8d68d7562bfb48d47287d33937d6",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3123601e3b29339b20129acc3f989cfec3274566",
+                "reference": "3123601e3b29339b20129acc3f989cfec3274566",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -7112,7 +7247,7 @@
                 "phar-io/version": "^2.0.1",
                 "php": "^7.2",
                 "phpspec/prophecy": "^1.10.3",
-                "phpunit/php-code-coverage": "^7.0.10",
+                "phpunit/php-code-coverage": "^7.0.12",
                 "phpunit/php-file-iterator": "^2.0.2",
                 "phpunit/php-text-template": "^1.2.1",
                 "phpunit/php-timer": "^2.1.2",
@@ -7168,7 +7303,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.9"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.11"
             },
             "funding": [
                 {
@@ -7180,7 +7315,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-10T12:51:38+00:00"
+            "time": "2020-11-27T12:46:45+00:00"
         },
         {
             "name": "scrivo/highlight.php",

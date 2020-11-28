@@ -17,7 +17,7 @@
     },
     created() {
       getPermissionGroupAll().then( response  => {
-        this.items = response.data.data
+        this.items = response.data
       })
     },
     watch: {

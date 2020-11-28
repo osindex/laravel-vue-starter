@@ -211,7 +211,8 @@
       requestData () {
         this.loading = true
         getMenuList(this.queryParams).then( response => {
-          this.tableListData = response.data.data
+          console.log(response.data,'menu')
+          this.tableListData = response.data
           this.loading = false
         })
       }

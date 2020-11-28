@@ -39,6 +39,15 @@ router.beforeEach((to, from, next) => {
               store.commit('SET_TOKEN', {token, provider})
             }
             resolve()
+
+            store.dispatch('getMe')
+            .then(
+              e => {}
+              // 必须函数执行 否则无法中止
+            )
+            .catch(err => {
+              // console.log(err)
+            })
           }
         }).catch(error => {
           reject(error)

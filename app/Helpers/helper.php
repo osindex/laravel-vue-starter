@@ -1,4 +1,13 @@
 <?php
+use Hongyukeji\LaravelSettings\Context;
+
+function contextAdj($value = '')
+{
+    return $value;
+    $cValue = json_decode($value, 1);
+    // dd($cValue, $value, new Context(['primary' => $value]));
+    return new Context(is_array($cValue) ? $cValue : ['primary' => $value]);
+}
 
 /**
  * 根据出生日期计算年龄、生肖、星座

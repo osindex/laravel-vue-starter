@@ -18,7 +18,7 @@
             </el-button>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item @click.native="openDialogChangePasswordForm">{{ $t('changePassword') }} </el-dropdown-item>
-              <el-dropdown-item @click.native="logout">Logout</el-dropdown-item>
+              <el-dropdown-item @click.native="logout">{{ $t('logout') }}</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </div>

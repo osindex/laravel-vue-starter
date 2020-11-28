@@ -1,9 +1,9 @@
 import notify from "./notify"
-
+// 这部分后期可以改用mixins
 export function responseDataFormat(response, th) {
-  th.tableData = response.data.data
+  th.tableData = response.data
 
-  let meta = response.data.meta
+  let meta = response.meta
   th.pagination = {
     currentPage: meta.current_page,
     pageSize: meta.per_page,

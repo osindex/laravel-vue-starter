@@ -41,7 +41,7 @@
       requestData() {
         if (this.guardName) {
           getMenuList({'guard_name': this.guardName}).then( response => {
-            this.options = response.data.data
+            this.options = response.data
           })
         } else {
           this.options = []

@@ -11,6 +11,7 @@ export default {
       roleAssignMenu: 'Role assignment menu',
       roleAssignPermission: 'Role assignment authority',
       test: 'Test',
+      setting: 'Setting',
     }
   },
   closeButton: {
@@ -28,6 +29,7 @@ export default {
   edit: 'Edit',
   delete: 'Delete',
   add: 'Add',
+  username: 'username/email',
   password: 'Password',
   oldPassword: 'Old password',
   confirmPassword: 'Confirm password',
@@ -57,7 +59,31 @@ export default {
   selectAll: 'Select all',
   unselectAll: 'Unselect all',
   changePassword: 'Change password',
+  logout: 'Logout',
   yes: 'Yes',
   no: 'No',
-  done: 'done',
+
+  login: {
+    title: 'Admin Login',
+    submit: 'Submit',
+    reset: 'Reset'
+  },
+  fail: 'Fail',
+  error: 'Error',
+  areyou: 'Are you',
+  createError: 'Create Fail',
+  editError: 'Edit Fail',
+  deleteError: 'Delete Fail',
+  notice: 'Notice',
+  plsselect: 'Please select',
+  delbatch: 'Del Done',
+  input: 'Input',
+  done: 'Done',
+  refresh: 'Refresh',
+  siteName: 'Site Name',
+  logo: 'logo',
+  company: 'Company',
+  icp: 'ICP',
+  save: 'Save',
+  reset: 'Reset'
 }

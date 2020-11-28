@@ -8,7 +8,7 @@ const state = {
 
 const getters = {
   token: state => state.token,
-  accessToken : state => state.token.access_token,
+  accessToken : state => state.token.token,
 }
 
 const mutations = {
@@ -23,7 +23,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       return login(arguments[1])
         .then(response => {
-          const token = response.data.data
+          const token = response.data
 
           commit('SET_TOKEN', {token, provider})
 
