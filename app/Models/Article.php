@@ -9,5 +9,6 @@ class Article extends Model
 {
     use FilterAndSorting;
     protected $guarded = [];
+    public $latestIndex = true;
     //
 }

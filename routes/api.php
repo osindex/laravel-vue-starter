@@ -36,7 +36,12 @@ Route::group(['middleware' => ['auth:sanctum']], function ($router) {
     $router->delete('setting_del/{key}', 'AppController@settingDel');
 
     $router->get('category/tree', 'CategoryController@tree');
+
+    $router->get('dept-user', 'DeptController@user');
+    $router->get('dept-admin-user', 'DeptController@adminUser');
+    $router->get('dept/tree', 'DeptController@tree');
     $router->resources([
+        'dept' => 'DeptController',
         'category' => 'CategoryController',
         'article' => 'ArticleController',
         'slider_group' => 'SliderGroupController',

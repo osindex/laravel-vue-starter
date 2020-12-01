@@ -9,4 +9,8 @@ class SliderGroup extends Model
 {
     use FilterAndSorting;
     protected $guarded = [];
+    public function slider()
+    {
+        return $this->hasMany('App\Models\Slider');
+    }
 }
