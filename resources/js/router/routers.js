@@ -16,6 +16,8 @@ import category from '../views/admin/content/category/routes'
 import test from '../views/admin/test/routes'
 import adminLogin from '../views/admin/login/routes'
 import setting from '../views/admin/setting/routes'
+// 虽然意义不大
+import pageDesign from '../views/admin/page-design/routes'
 
 export default [
   {
@@ -29,7 +31,7 @@ export default [
     component: Admin,
     children: [
       proxy,
-      ...adminDashboard, ...adminUser, ...role, ...permission, ...permissionGroup, ...menu, ...setting, ...test, ...category, ...article, ...dept, ...user, ...slider_group, ...slider
+      ...adminDashboard, ...adminUser, ...role, ...permission, ...permissionGroup, ...menu, ...setting, ...pageDesign, ...test, ...category, ...article, ...dept, ...user, ...slider_group, ...slider
     ]
   },
   ...adminLogin,

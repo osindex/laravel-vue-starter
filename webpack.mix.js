@@ -35,8 +35,7 @@ mix.browserSync({
 })
 mix.js('resources/js/app.js', 'public/js')
 	.js('resources/js/admin.js', 'public/js')
-  .copyDirectory('resources/assets', 'public/assets/')
-    .sass('resources/sass/app.scss', 'public/css');
+  .sass('resources/sass/app.scss', 'public/css');
 if (mix.config.inProduction) {
   mix.version()
 }

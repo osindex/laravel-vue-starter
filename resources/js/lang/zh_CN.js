@@ -1,7 +1,7 @@
 export default {
   meta: {
     title: {
-      dashboard: 'Dashboard',
+      dashboard: '控制面板',
       adminUser: '管理员用户',
       home: '首页',
       role: '角色',
@@ -19,6 +19,7 @@ export default {
             category: '栏目设置',
             content: '内容管理',
       test: 'Test',
+      pageDesign: '设计',
       setting: '设置',
     }
   },
