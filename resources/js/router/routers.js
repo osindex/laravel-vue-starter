@@ -1,5 +1,5 @@
 import Admin from '../views/admin/main/index'
-import adminUser from '../views/admin/user/routes'
+import adminUser from '../views/admin/admin-user/routes'
 import proxy from './proxy'
 
 import role from '../views/admin/role/routes'

@@ -14,3 +14,7 @@ php artisan db:seed --calss="Category"
 APP_URL=xxx
 npm run watch
 ```
+
+## 注意
+添加菜单会自动添加目录和文件，若协作则需要写入seed，同步菜单数据。
+
