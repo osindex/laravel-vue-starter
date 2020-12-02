@@ -12,13 +12,16 @@
       <div v-for="(item,index) in dialogs" :key="index">
               <el-dialog
                 top="5vh"
-                :fullscreen="item.fullscreen"
-                :title="item.title"
-                :visible.sync="!!item&&item.visible"
+                v-dialogdrag
+                class="avue-dialog"
+                center
+                :fullscreen="item.proxyFullscreen"
+                :title="item.proxyTitle"
+                :visible.sync="!!item&&item.proxyVisible"
                 :append-to-body="false"
                 :before-close="handleClose"
               >
-                <component :is="item.id" v-if="!!item&&item.visible" v-bind="item.bind" @closeDialog="item.closeDialog(index)" />
+                <component :is="item.proxyId" v-if="!!item&&item.proxyVisible" v-bind="item.proxyBind" v-on="item.proxyOn" @closeDialog="item.closeDialog(index)" />
               </el-dialog>
             </div>
     </el-container>
@@ -53,22 +56,26 @@
       }
     },
     beforeRouteUpdate(to, from, next) {
-      console.log('jump being intercepted by main index')
+      console.log('jump being intercepted by main index', to)
       // 具体用法查看minxins/proxy.js
       if (to.name === 'proxy') {
         const id = 'dialog' + Math.floor(Math.random() * 1000000000000000 + 1)
-        const route = routeByName(to.params.name)
+        const route = routeByName(to.params.proxyName)
+        console.log(route,'rrrroute',to.params)
         Vue.component(id, route.component)
         // 拦截dialog路由 根据name实例化组件`
         this.dialogs.push({
-          id: id,
-          visible: true,
+          proxyId: id,
+          proxyVisible: true,
           dWidth: to.meta.width,
-          fullscreen: to.params.fullscreen || false,
+          proxyFullscreen: to.params.proxyFullscreen || false,
           // 绑定的组件参数
-          bind: to.params,
-          title: to.params.title || to.meta.title,
+          proxyBind: to.params.proxyBind,
+          proxyOn: to.params.proxyOn,
+          // proxyTitle 不是 单独属性，放到row一起展示
+          proxyTitle: to.params.proxyTitle || this.$t(`meta.title.${route.meta.title}`),
           closeDialog: (i) => {
+            // 实际上只是隐藏 而不是清除
             Vue.set(this.dialogs[i], 'visible', false)
             this.dialogs.splice(i, 1)
             // this.closeEnd()

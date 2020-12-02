@@ -151,8 +151,16 @@
         this.getTable();
       },
       msgDialog(row) {
-        console.log(row,'rrr')
-        this.proxy('msgBoxIndex')
+        this.proxy('msgBoxIndex', {proxyTitle: row.name + '消息管理', user: row},
+        {
+          callFunc: (x)=>{
+            console.log(x,'x1')
+            this.callFunc(x)
+          }
+        })
+      },
+      callFunc(x) {
+        console.log(x,'x2')
       }
     },
     computed: {

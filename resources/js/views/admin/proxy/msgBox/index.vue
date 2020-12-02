@@ -1,6 +1,7 @@
 <template>
   <div>
-    msgBox
+    {{user.name}}
+    <el-button @click="clickEdit">编辑</el-button>
   </div>
 </template>
 
@@ -11,9 +12,21 @@
     name: 'msgBoxIndex',
     components: {
     },
+    props: {
+      user: {
+        type: Object,
+        default: {
+
+        }
+      }
+    },
     data: () => ({
     }),
     methods: {
+      clickEdit() {
+        console.log('xyz')
+        this.$emit('callFunc','xyz')
+      }
     },
     computed: {
       updatePermission: function() {
@@ -26,7 +39,8 @@
         return hasPermission('msgBox.destroy')
       }
     },
-    created() {
+    mounted() {
+      console.log(this.user,'mmm')
     }
   }
 </script>
