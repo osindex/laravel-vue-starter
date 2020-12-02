@@ -145,7 +145,6 @@
         this.getTable()
       },
       nodeClick(data) {
-        console.log((data))
         this.queryParams.category_id = data.id
         this.pagination.currentPage = 1
         this.getTable();
@@ -153,7 +152,7 @@
       msgDialog(row) {
         this.proxy('msgBoxIndex', {proxyTitle: row.name + '消息管理', user: row},
         {
-          callFunc: (x)=>{
+          callFunc: (x) => {
             console.log(x,'x1')
             this.callFunc(x)
           }
