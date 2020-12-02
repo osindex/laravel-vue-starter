@@ -23,8 +23,8 @@
             @current-change="currentChange"
             @row-dblclick="handleRowDBLClick"
           >
-            <template slot="sliderForm" slot-scope="scope">
-              <avue-crud :option="sliderOption" :data="sliderData"></avue-crud>
+            <template slot="sliderForm" slot-scope="{row}">
+              <slider :groupId.sync="row.id" :data.sync="row.slider" @dataChange="data=>syncSliderRow(row, data)"></slider>
             </template>
           </avue-crud>
         </el-main>
@@ -37,31 +37,29 @@
   import { hasPermission } from '@/libs/permission'
   import Avue from '@/components/Form/Avue'
   import table from '@/mixins/table'
-  import proxy from '@/mixins/proxy'
+  // import proxy from '@/mixins/proxy'
+  import slider from './slider'
 
   export default {
     name: 'slider_groupIndex',
     components: {
-      Avue
+      Avue, slider
     },
-    mixins: [table, proxy],
+    mixins: [table],
     data: () => ({
       module: '/api/slider_group',
       urlProp: {
-        with: 'slider'
-      },
-      sliderData: [],
-      sliderPagination: {
-        pageSizes: [10, 20, 30, 50],
-        currentPage: 1,
-        total: 0,
-        pageSize: 10
+        expand: 'slider'
       }
     }),
     methods: {
       fetchData() {
         this.getTable()
       },
+      syncSliderRow(row, data) {
+        this.dataTable[row.$index].slider = data
+        // row.slider = data 无效
+      }
       // nodeClick(data) {
       //   console.log((data))
       //   this.queryParams.category_id = data.id
@@ -70,18 +68,6 @@
       // }
     },
     computed: {
-      treeOption() {
-          return {
-            defaultExpandAll: false,
-            addBtn: false,
-            props: {
-              labelText: "标题",
-              label: "title",
-              value: "id",
-              children: "children"
-            }
-          }
-      },
       optionTable() {
         return {
           ...this.avueController,
@@ -108,7 +94,8 @@
               'prop': 'title',
               'label': '名称',
               'span': 12,
-              'display': true
+              viewDisplay: false,
+              // 'display': true
             },
             {
               'prop': 'cover',
@@ -122,17 +109,20 @@
               'url': 'url',
               'action': this.$uploadUrl,
               'span': 18,
-              'display': true
+              viewDisplay: false,
+              // 'display': true
             },
             {
               'prop': 'description',
               'label': '描述',
+              viewDisplay: false,
               'span': 12,
             },
             {
               prop: 'sequence',
               label: '排序',
               type: 'number',
+              viewDisplay: false,
               span: 12
             },
             {
@@ -141,55 +131,12 @@
               prop: 'slider',
               span: 24,
               hide: true,
+              addDisplay: false,
+              editDisplay: false,
               formslot: true,
             }
-            
           ]
         }
-      },
-      sliderOption() {
-        return {
-                  ...this.avueController,
-                  page: this.sliderPagination,
-                  column: [
-                    {
-                      'prop': 'title',
-                      'label': '名称',
-                      'span': 12,
-                      'display': true
-                    },
-                    {
-                      'prop': 'cover',
-                      'label': '封面',
-                      'type': 'upload',  
-                      'listType': 'picture-img',
-                      'tip': '只能上传jpg/png类型，且不超过1000kb',
-                      // 'propsHttp': {
-                      //   res: 'data'
-                      // },
-                      'url': 'url',
-                      'action': this.$uploadUrl,
-                      'span': 18,
-                      'display': true
-                    },
-                    {
-                      'prop': 'url',
-                      'label': '跳转链接',
-                      'span': 12,
-                    },
-                    {
-                      prop: 'sequence',
-                      label: '排序',
-                      type: 'number',
-                      span: 12
-                    },
-                    {
-                      'prop': 'description',
-                      'label': '描述',
-                      'span': 24,
-                    }
-                  ]
-                }
       },
       updatePermission: function() {
         return hasPermission('slider_group.update')

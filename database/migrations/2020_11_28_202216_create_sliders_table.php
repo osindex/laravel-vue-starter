@@ -16,7 +16,7 @@ class CreateSlidersTable extends Migration
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('group_id');
-            $table->date('published_at');
+            $table->datetime('published_at')->nullable();
             $table->string('title');
             $table->string('cover')->nullable();
             $table->string('url')->nullable();

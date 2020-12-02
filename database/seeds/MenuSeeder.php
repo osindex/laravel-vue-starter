@@ -27,6 +27,47 @@ class MenuSeeder extends Seeder
         // $this->add('room', '空间管理', [
         //     'index' => 'el-icon-house',
         // ], true, $systemId);
+        $contentId = $this->add('content', '内容管理', [
+            'index' => 'el-icon-wallet',
+        ], true, 0, '/admin/content');
+        $this->add('category', '栏目设置', [
+            'index' => null,
+            'update' => null,
+            'store' => null,
+            'destroy' => null,
+        ], true, $contentId, '/admin/content/category');
+        $this->add('article', '资讯内容', [
+            'index' => null,
+            'update' => null,
+            'store' => null,
+            'destroy' => null,
+        ], true, $contentId, '/admin/content/article');
+        $this->add('slider_group', '焦点图组', [
+            'index' => null,
+            'update' => null,
+            'store' => null,
+            'destroy' => null,
+        ], true, $contentId, '/admin/content/slider_group');
+
+        $this->add('user', '用户库', [
+            'index' => 'el-icon-user',
+        ], true, 0, '/admin/user');
+
+        $organizeId = $this->add('organize', '组织机构', [
+            'index' => 'el-icon-menu',
+        ], true, 0, '/admin/organize');
+        $this->add('dept', '部门管理', [
+            'index' => null,
+            'update' => null,
+            'store' => null,
+            'destroy' => null,
+        ], true, $organizeId, '/admin/organize/dept');
+        $this->add('dept-user', '部门用户', [
+            'index' => null,
+            'update' => null,
+            'store' => null,
+            'destroy' => null,
+        ], true, $organizeId, '/admin/organize/dept-user');
         $this->preGivePermissionAndMenu();
         $this->AdminRoleGivePermission();
         $exitCode = \Artisan::call('permission:cache-reset', []);

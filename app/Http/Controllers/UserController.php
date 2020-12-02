@@ -22,7 +22,7 @@ class UserController extends Controller
     {
         $deptHas = $request->get('deptHas', false);
         $data = $this->model->setFilterAndRelationsAndSort($request)
-            ->when($deptHas, function (Builder $q) use ($deptHas) {
+            ->when($deptHas, function ($q) use ($deptHas) {
                 return $q->whereHas('depts', function ($query) use ($deptHas) {
                     $query->where('dept_id', $deptHas);
                 });

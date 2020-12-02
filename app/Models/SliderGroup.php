@@ -8,9 +8,18 @@ use Osi\LaravelControllerTrait\Models\FilterAndSorting;
 class SliderGroup extends Model
 {
     use FilterAndSorting;
-    protected $guarded = [];
+    protected $fillable = [
+        'cover',
+        'description',
+        'sequence',
+        'title',
+        'options',
+    ];
+    protected $casts = [
+        'options' => 'json',
+    ];
     public function slider()
     {
-        return $this->hasMany('App\Models\Slider');
+        return $this->hasMany('App\Models\Slider', 'group_id');
     }
 }

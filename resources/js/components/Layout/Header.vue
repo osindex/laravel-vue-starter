@@ -68,9 +68,9 @@
     data() {
       let confirmPassword = (rule, value, callback) => {
         if (value === '') {
-          callback(new Error('Please enter your password again'))
+          callback(new Error('请再次输入密码'))
         } else if (value !== this.changePasswordForm.password) {
-          callback(new Error('Inconsistent password entered twice'))
+          callback(new Error('两次密码不一致'))
         } else {
           callback()
         }
@@ -85,17 +85,30 @@
         },
         rules: {
           old_password: [
-            { required: true },
-            { min: 6, max: 32 }
+            { 
+              required: true,
+              message: `请输入 ${this.$t('old_password')}`,
+             },
+            { min: 6, max: 32,
+              message: `密码长度 6-32位`,
+             }
           ],
           password: [
-            { required: true },
-            { min: 8, max: 32 }
+            { required: true,
+              message: `请输入 ${this.$t('password')}`,
+             },
+            { min: 8, max: 32,
+              message: `密码长度 8-32位`,
+             }
           ],
           password_confirmation: [
-            { required: true },
+            { required: true,
+              message: `请输入 ${this.$t('confirmPassword')}`,
+             },
             { validator: confirmPassword },
-            { min: 8, max: 32 }
+            { min: 8, max: 32,
+              message: `密码长度 8-32位`,
+             }
           ]
         }
       }

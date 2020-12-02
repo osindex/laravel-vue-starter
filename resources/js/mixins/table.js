@@ -119,6 +119,7 @@ export default {
       const { data, meta } = await index(module, this.sendGetParams())
       this.dataTable = data
       // console.log(data,'dddd')
+      this.getTableAfter()
       pageFormat(meta, this)
       // index(module, this.sendGetParams()).then(res=>{
       //   this.dataTable = res.data
@@ -180,6 +181,7 @@ export default {
         del(this.module, row.id).then(response => {
           if (response.status === 204) {
             this.dataTable.splice(index, 1)
+            this.changeAfter('batchDelete', row)
             notify.deleteSuccess(this)
           }
         })
@@ -222,6 +224,7 @@ export default {
     },
     handleUpdate(row, index, done, loading) {
       edit(this.module, row.id, row).then(response => {
+        this.changeAfter('update', row)
         this.getTable()
         done()
         notify.editSuccess(this)
@@ -235,6 +238,7 @@ export default {
       add(this.module, row).then(
         response => {
           if (response.status === 201) {
+            this.changeAfter('save', row)
             this.getTable()
             done()
             notify.createSuccess(this)
@@ -251,6 +255,12 @@ export default {
     },
     handleRowDBLClick(row, event) {
       this.$refs.crud.rowEdit(row, row.$index)
+    },
+    changeAfter(type, row){
+      console.log('changeAfter: ' + type)
+    },
+    getTableAfter() {
+      // 加载数据之后
     }
   },
   watch: {

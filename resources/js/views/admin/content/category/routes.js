@@ -6,7 +6,7 @@ export default [
       provider: 'admin',
       title: 'category',
       cache: true,
-      permission: 'category'
+      permission: 'category.index'
     },
     component: resolve => void(require(['./index.vue'], resolve))
   }

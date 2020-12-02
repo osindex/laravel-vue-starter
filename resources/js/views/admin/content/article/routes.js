@@ -6,7 +6,7 @@ export default [
       provider: 'admin',
       title: 'article',
       cache: true,
-      permission: 'article'
+      permission: 'article.index'
     },
     component: resolve => void(require(['./index.vue'], resolve))
   }

@@ -28,6 +28,6 @@ class AddDeptUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('DeptUser');
+        Schema::dropIfExists('dept_user');
     }
 }

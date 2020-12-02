@@ -20,6 +20,15 @@ export default {
       default: true
     }
   ],
-
+  stateList: [
+    {
+      label: '禁用',
+      value: 0,
+    },
+    {
+      label: '可用',
+      value: 1,
+    }
+  ],
   showAuthorGitHubUrl: true,
 }

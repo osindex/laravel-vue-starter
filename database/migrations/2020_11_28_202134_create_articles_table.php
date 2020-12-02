@@ -16,7 +16,7 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id');
-            $table->date('published_at');
+            $table->datetime('published_at')->nullable();
             $table->string('title');
             $table->string('cover')->nullable();
             $table->unsignedTinyInteger('state')->default(1)->comment('0 1');
