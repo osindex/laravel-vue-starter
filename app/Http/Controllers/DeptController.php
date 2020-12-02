@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AdminUser;
 use App\Models\Dept;
-use App\Models\User;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Osi\LaravelControllerTrait\Traits\ControllerBaseTrait;
 
@@ -26,22 +23,11 @@ class DeptController extends Controller
         $res = makeTree($data);
         return $this->dataSuccess($res);
     }
-    public function adminUser(Request $request)
-    {
-        $data = AdminUser::setFilterAndRelationsAndSort($request)->paginate((int) $request->pageSize ?? 15);
-        return new $this->collection($data);
-    }
     public function user(Request $request)
     {
-        $deptHas = $request->get('deptHas', false);
-        $data = User::setFilterAndRelationsAndSort($request)
-            ->when($deptHas, function (Builder $q) use ($deptHas) {
-                return $q->whereHas('depts', function ($query) use ($deptHas) {
-                    $query->where('dept_id', $deptHas);
-                });
-            })
-            ->paginate((int) $request->pageSize ?? 15);
-        return new $this->collection($data);
+        // 方便权限处理
+        $controller = resolve('\App\Http\Controllers\UserController');
+        return $controller->index($request);
     }
     public function deptTag($data, $dept_id)
     {

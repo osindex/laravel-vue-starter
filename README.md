@@ -6,7 +6,7 @@ php artisan migrate
 php artisan db:seed --class="Moell\Mojito\Database\MojitoTableSeeder"
 php artisan db:seed
 # 运行测试数据
-php artisan db:seed --calss="Category"
+php artisan db:seed --calss="\Category"
 ```
 ## 运行
 ```

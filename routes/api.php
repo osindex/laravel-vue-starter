@@ -41,6 +41,7 @@ Route::group(['middleware' => ['auth:sanctum']], function ($router) {
     $router->get('dept-admin-user', 'DeptController@adminUser');
     $router->get('dept/tree', 'DeptController@tree');
     $router->resources([
+        'user' => 'UserController',
         'dept' => 'DeptController',
         'category' => 'CategoryController',
         'article' => 'ArticleController',

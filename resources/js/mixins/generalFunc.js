@@ -22,9 +22,6 @@ export default {
     arrSum(res, name) {
       return _.sumBy(res, function(o) { return o[name] })
     },
-    getAmount(num) {
-      return num / 100.00
-    },
     drawerClose() {
       this.drawerShow = false
       this.fetchData()

@@ -1,20 +1,32 @@
 import { index, add, edit, del } from '@/api/base'
 import notify from '@/libs/notify'
+import { parseFilter } from '@/libs/table'
 
 export default {
   data() {
     return {
       treeModule: '',
       treeModel: {},
-      treeData: []
+      treeData: [],
+      queryTreeParams: {},
+      urlTreeProp: []
     }
   },
   methods: {
+    mustTreeParams() {
+      // 强制条件 如
+      // this.queryTreeParams.abd = 1
+    },
+    sendGetTreeParams(other = {}) {
+      this.mustTreeParams()
+      let query = parseFilter(this.queryTreeParams, false)
+      return { ...other, ...this.urlTreeProp, filter: query }
+    },
     async getTree(module = null) {
       if (!module) {
         module = this.treeModule + '/tree'
       }
-      const { data, meta } = await index(module)
+      const { data, meta } = await index(module, this.sendGetTreeParams())
       this.treeData = data
     },
     handleDelTree(data, node, done) {

@@ -12,7 +12,10 @@ export default {
   	 * @return {Func}    跳转页面转弹窗
   	 */
     proxy: function(name, params = {}, fullscreen = false) {
-      return this.$router.push({ name: 'proxy', params: { path: name, fullscreen: fullscreen, ...params }})
+      return this.$router.push({ name: 'proxy', params: { name: name, fullscreen: fullscreen, ...params }})
+    },
+    proxyPath: function(path, params = {}, fullscreen = false) {
+      return this.$router.push({ name: 'proxy', params: { path: path, fullscreen: fullscreen, ...params }})
     }
   }
 }

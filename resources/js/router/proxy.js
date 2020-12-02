@@ -5,7 +5,7 @@ export default
   props: { dialog: true },
   meta: {
     dialog: true,
-    title: '弹窗详情',
+    title: 'proxy',
     width: 'w800',
     provider: 'admin',
     permission: 'system.dialog', // 单独弹窗权限

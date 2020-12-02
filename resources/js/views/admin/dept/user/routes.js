@@ -4,7 +4,7 @@ export default [
     path: 'dept/user',
     meta: {
       provider: 'admin',
-      title: 'user',
+      title: 'deptUser',
       cache: true,
       permission: 'user.index'
     },

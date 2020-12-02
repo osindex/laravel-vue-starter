@@ -4,9 +4,9 @@ export default [
     path: 'dept/index',
     meta: {
       provider: 'admin',
-      title: 'index',
+      title: 'deptIndex',
       cache: true,
-      permission: 'index.index'
+      permission: 'dept.index'
     },
     component: resolve => void(require(['./index.vue'], resolve))
   }
