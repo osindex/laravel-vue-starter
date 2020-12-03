@@ -139,8 +139,12 @@
         },
         rules: {
           name: [
-            { required: true },
-            { min: 1, max: 255 }
+            { required: true,
+              message: '名称必填'
+             },
+            { min: 1, max: 255,
+              message: '名称长度不能少于1'
+             }
           ],
           guard_name: [
             { required: true },

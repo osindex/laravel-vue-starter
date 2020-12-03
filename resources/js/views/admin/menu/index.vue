@@ -148,16 +148,21 @@
       tableListData: [],
       foldList: [],
       addForm: {
-        guard_name: defaultGuard()
+        guard_name: defaultGuard(),
+        parent_id: 0
       },
       editForm: {},
       rules: {
         name: [
-          { required: true },
+          { required: true,
+            message: '菜单名称必填'
+           },
           { min: 1, max: 255 }
         ],
         uri: [
-          { required: true },
+          { required: true,
+            message: '菜单链接必填'
+           },
           { min: 1, max: 255 }
         ],
         guard_name: [
@@ -165,10 +170,15 @@
           { min: 1, max: 255 }
         ],
         parent_id: [
-          { required: true, type: 'number' }
+          { required: true, type: 'number',
+            message: '请选择父级菜单'
+           }
         ],
         sequence: [
-          {type: 'number' }
+          { 
+            type: 'number',
+            message: '排序必须为数字'
+           }
         ]
       },
     }),

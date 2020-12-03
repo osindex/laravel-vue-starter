@@ -19,8 +19,13 @@ class DeptController extends Controller
     }
     public function tree(Request $request)
     {
-        $data = $this->model->setFilterAndRelationsAndSort($request)->get()->toArray();
-        $res = makeTree($data);
+        $data = $this->model->setFilterAndRelationsAndSort($request)->get();
+        if ($request->appendTop) {
+            foreach ($this->model->defaultOptions() as $option) {
+                $data->prepend($option);
+            }
+        }
+        $res = makeTree($data->toArray());
         return $this->dataSuccess($res);
     }
     public function user(Request $request)

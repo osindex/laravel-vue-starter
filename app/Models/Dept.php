@@ -16,6 +16,7 @@ class Dept extends Model
             [
                 'id' => 0,
                 'name' => '顶级机构',
+                'parent_id' => 0,
             ],
         ];
     }

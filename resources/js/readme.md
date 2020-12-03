@@ -17,16 +17,7 @@ methods: {
 ```
 
 ## 快速Modal
-```
-<Dialog label="标题" ref="dialog">
- ...
-</Dialog>
-
-import Dialog from "@/components/layout/Dialog"
-
-this.$refs.dialog.dialogVisibleFunc()
-
-```
+查看 @/mixins/proxy.js
 
 ## hack记录
 ```
@@ -38,3 +29,6 @@ this.$refs.dialog.dialogVisibleFunc()
 
 searchResetBtn: false, // 搜索重置嵌套报错 改用menuRight
 ```
+
+## 常用页面封装
+查看 @/view/test/index.vue

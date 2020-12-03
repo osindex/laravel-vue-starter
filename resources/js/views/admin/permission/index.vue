@@ -196,11 +196,15 @@
         },
         rules: {
           name: [
-            { required: true },
+            { required: true,
+              message: '权限标记必填'
+             },
             { min: 1, max: 255 }
           ],
           display_name: [
-            { required: true },
+            { required: true,
+              message: '权限名称必填'
+             },
             { min: 1, max: 255 }
           ],
           guard_name: [

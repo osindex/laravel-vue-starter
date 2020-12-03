@@ -98,7 +98,9 @@
         },
         rules: {
           name: [
-            { required: true },
+            { required: true,
+              message: '权限组名称必填'
+             },
             { min: 1, max: 255 }
           ]
         }

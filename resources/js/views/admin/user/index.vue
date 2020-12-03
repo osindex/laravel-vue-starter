@@ -7,8 +7,12 @@
         </el-aside>
         <el-main>
           <avue-crud ref="crud" v-model="obj" :data="dataTable" :option="optionTable" :page="pagination" :table-loading="loading" @selection-change="selectionChange" @date-change="dateChange" @search-reset="searchReset" @search-change="searchChange" @refresh-change="refreshChange" @sort-change="sortChange" @row-update="handleUpdate" @row-save="handleSave" @row-del="handleDel" @size-change="sizeChange" @current-change="currentChange" @row-dblclick="handleRowDBLClick">
-            <template slot="user_id" slot-scope="{row}">
-              <el-tag>{{row.user_type=='student' ? row.user.name : row.user.family_name}}</el-tag>
+            <template slot="openid" slot-scope="{row}">
+              <bind-wechat 
+              :openid="row.openid"
+              :id="row.id"
+              type="users"
+               />
             </template>
             <template slot-scope="{row}" slot="user_studentSearch">
               <SearchStudent :nowValue.sync="row.user_student" />
@@ -28,12 +32,13 @@ import Avue from '@/components/Form/Avue'
 import table from '@/mixins/table'
 import tree from '@/mixins/tree'
 import proxy from '@/mixins/proxy'
+import BindWechat from '@/components/Form/BindWechat'
 
 export default {
   name: 'userIndex',
   mixins: [table, tree, proxy],
   components: {
-    Avue
+    Avue,BindWechat
   },
   props: {
     isController: {
@@ -51,7 +56,7 @@ export default {
     addBtn: {
       type: Boolean,
       default: () => {
-        return false
+        return true
       }
     },
     viewBtn: {
@@ -101,6 +106,7 @@ export default {
     }
   },
   mounted() {
+    this.urlTreeProp.appendTop = true
     this.fetchUserData()
   },
   data() {
@@ -120,12 +126,12 @@ export default {
       this.getTable();
     },
     msgDialog(row) {
-      this.proxy('msgBoxIndex', { proxyTitle: row.name + '消息管理', user: row }, {
+      this.proxy('msgBoxIndex', {proxyTitle: row.name + '消息管理', user: row }, {
         callFunc: (x) => {
           console.log(x, 'x1')
           this.callFunc(x)
         }
-      })
+      }, false)
     },
     callFunc(x) {
       console.log(x, 'x2')
@@ -146,6 +152,15 @@ export default {
       }
     },
     optionTable() {
+      let confirmPassword = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请再次输入密码'))
+        } else if (value !== this.obj.password) {
+          callback(new Error('两次密码不一致'))
+        } else {
+          callback()
+        }
+      }
       return {
         ...this.avueController,
         // 头部控制器
@@ -179,20 +194,66 @@ export default {
             'display': true
           },
           {
-            'prop': 'avatar',
-            'label': '头像',
-            'type': 'upload',
-            'listType': 'picture-img',
-            'tip': '只能上传jpg/png类型，且不超过1000kb',
-            // 'propsHttp': {
-            //   res: 'data'
-            // },
-            'url': 'url',
-            'action': this.$uploadUrl,
-            'span': 18,
+            'prop': 'username',
+            'label': '用户名',
+            'span': 12,
             'display': true
           },
-        ]
+          {
+            'prop': 'email',
+            'label': '邮箱',
+            'overHidden': true,
+            'span': 12,
+            'display': true
+          },
+          {
+            'prop': 'phone',
+            'label': '电话',
+            'span': 12,
+            'display': true
+          },
+          {
+            'prop': 'password',
+            'label': '密码',
+            'span': 12,
+            'viewDisplay': false,
+            'hide': true,
+            'type': 'password',
+            rules: [
+              { required: true,
+                message: `请输入 ${this.$t('password')}`,
+               },
+              { min: 8, max: 32,
+                message: `密码长度 8-32位`,
+               }
+            ]
+          },
+          {
+            'prop': 'password_confirmation',
+            'label': '确认密码',
+            'span': 12,
+            'viewDisplay': false,
+            'hide': true,
+            'type': 'password',
+            rules: [
+                { required: true,
+                  message: `请输入 ${this.$t('confirmPassword')}`,
+                 },
+                { validator: confirmPassword },
+                { min: 8, max: 32,
+                  message: `密码长度 8-32位`,
+                 }
+            ]
+          },
+          {
+            'prop': 'openid',
+            'label': '绑定微信',
+            'span': 12,
+            'slot': true,
+            'minWidth': '160px',
+            'display': false,
+          },
+        ],
       }
     },
     updatePermission: function() {

@@ -9,10 +9,23 @@
           <router-view/>
         </keep-alive>
       </el-main>
+      <!-- 增加拖拽功能 有点麻烦 -->
       <div v-for="(item,index) in dialogs" :key="index">
               <el-dialog
                 top="5vh"
+                class="avue-dialog"
+                :fullscreen="item.proxyFullscreen"
+                :title="item.proxyTitle"
+                :visible.sync="!!item&&item.proxyVisible"
+                :append-to-body="false"
+                :before-close="handleClose"
                 v-dialogdrag
+                v-if="item.proxyDrag"
+              >
+                <component :is="item.proxyId" v-if="!!item&&item.proxyVisible" v-bind="item.proxyBind" v-on="item.proxyOn" @closeDialog="item.closeDialog(index)" />
+              </el-dialog>
+              <el-dialog
+                top="5vh"
                 class="avue-dialog"
                 center
                 :fullscreen="item.proxyFullscreen"
@@ -20,6 +33,7 @@
                 :visible.sync="!!item&&item.proxyVisible"
                 :append-to-body="false"
                 :before-close="handleClose"
+                v-else
               >
                 <component :is="item.proxyId" v-if="!!item&&item.proxyVisible" v-bind="item.proxyBind" v-on="item.proxyOn" @closeDialog="item.closeDialog(index)" />
               </el-dialog>
@@ -72,6 +86,7 @@
           // 绑定的组件参数
           proxyBind: to.params.proxyBind,
           proxyOn: to.params.proxyOn,
+          proxyDrag: to.params.proxyDrag,
           // proxyTitle 不是 单独属性，放到row一起展示
           proxyTitle: to.params.proxyTitle || this.$t(`meta.title.${route.meta.title}`),
           closeDialog: (i) => {

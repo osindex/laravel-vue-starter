@@ -49,12 +49,12 @@
 
           Promise.all([guardRoles, userRoles]).then( result => {
             let roles = []
-            result[0].data.data.forEach( role => {
+            result[0].data.forEach( role => {
               roles.push(role.name)
             })
 
             let userRoles = []
-            result[1].data.data.forEach( role => {
+            result[1].data.forEach( role => {
               userRoles.push(role.name)
             })
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <user :showTree="showTree" :moduleProp.sync="moduleProp" :isController="false"/>
+    <user :showTree="showTree" :moduleProp.sync="moduleProp" :isController="false" :addBtn="false"/>
   </div>
 </template>
 

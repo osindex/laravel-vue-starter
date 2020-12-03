@@ -107,7 +107,7 @@
 <script>
   import { getAdminUserList, addAdminUser, editAdminUser, deleteAdminUser } from '../../../api/adminUser'
   import { responseDataFormat, tableDefaultData, editSuccess, addSuccess, deleteSuccess } from '../../../libs/tableDataHandle'
-  import { hasPermission } from '../../../libs/permission'
+  import { hasPermission, showGuard, defaultGuard } from '../../../libs/permission'
   import UserAssignRole from "../../../components/User/AssignRole";
   import { queryParams } from "../../../mixins/queryParams"
 
@@ -122,7 +122,7 @@
         ...tableDefaultData(),
         assignRoleParams: {
           id: 0,
-          guardName: 'admin',
+          guardName: defaultGuard(),
           provider: this.$provider,
           dialogVisible: false,
         },
@@ -136,24 +136,42 @@
         },
         addRules: {
           name: [
-            { required: true },
-            { min: 3, max: 255 }
+            { 
+              required: true,
+              message: '用户名必填'
+            },
+            { min: 3, max: 255,
+              message: '用户名不能少于3个字符'
+             }
           ],
           email: [
-            { type: 'email', required: true}
+            { type: 'email', required: true,
+              message: '邮箱必填'
+          }
           ],
           password: [
-            { required: true },
-            { min: 8, max: 32 }
+            { required: true,
+              message: '密码必填'
+             },
+            { min: 8, max: 32,
+              message: '密码长度在 8 到 32 个字符'
+             }
           ]
         },
         editRules: {
           name: [
-            { required: true },
-            { min: 3, max: 255 }
+            {
+              required: true,
+              message: '用户名必填'
+             },
+            { min: 3, max: 255,
+              message: '用户名不能少于3个字符'
+             }
           ],
           password: [
-            { min: 8, max: 32 }
+            { min: 8, max: 32,
+              message: '密码长度在 8 到 32 个字符'
+             }
           ]
         }
       }
