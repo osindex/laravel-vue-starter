@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>TestMsg</title>
+</head>
+<body>
+	<button onclick="send()">发送</button>
+	    <script type="text/javascript">
+	    function send() {
+	        //window.opener指的就是父窗口（打开本窗口的窗口）
+	        var data = {
+	        	type: 'msg',
+	        	msg: '我是子窗口，向主窗口发送消息'
+	        }
+	        window.opener.postMessage(data, '*');
+	    }
+	    function receiveMessage(event) {
+	        if (event.origin === window.opener.origin){
+		        console.log('send ...')     	
+		        send()
+	        }
+	    }
+	    window.addEventListener("message", receiveMessage, false);
+	    </script>
+</body>
+</html>

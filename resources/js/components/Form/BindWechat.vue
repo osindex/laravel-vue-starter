@@ -6,13 +6,13 @@
           <el-button size="mini" plain @click="bindWxBtn" icon="icon adminicon weixin"></el-button>
         </el-tooltip>
       </el-button-group>
-      <el-button size="mini" type="primary" icon="el-icon-arrow-right" v-else @click="bindWxBtn">绑定微信></i></el-button>
+      <el-button size="mini" type="primary" icon="el-icon-arrow-right" v-else @click="bindWxBtn">绑定微信</el-button>
   </div>
 </template>
 
 <script>
 import { index,add } from '@/api/base'
-import { parseFilter } from '@/libs/util'
+import { parseFilter, openWindow } from '@/libs/util'
   export default {
     name: 'BindWechat',
     model: {
@@ -26,13 +26,18 @@ import { parseFilter } from '@/libs/util'
     },
     data() {
       return {
-        bindUrl: ''
+        bindWindow: '',
+        bindUrl: '',
+        count: 0,
       }
     },
     computed: {
     },
     created() {
-
+        window.addEventListener("message", this.getwindowMessage, true);
+    },
+    destroyed() {
+      window.removeEventListener("message", this.getwindowMessage, true);
     },
     mounted() {
     },
@@ -54,7 +59,23 @@ import { parseFilter } from '@/libs/util'
         })
       },
       bindWxBtn() {
-
+        const url = '/msg.html'
+        // const url = 'http://www.baidu.com'
+        const title = 'TestName'
+        this.bindWindow = openWindow(url, title)
+        // 
+      },
+      getwindowMessage(event) {
+        if(event.source === this.bindWindow){
+          const data = event.data
+          ++this.count
+          this.bindWindow.postMessage('主动告知');
+          console.log(this.count, 'countLog')
+          if (this.count > 3) {
+            this.bindWindow.close()
+            this.count = 0          
+          }
+        }
       },
       change(){
         this.$emit("change",this.nowValue)
