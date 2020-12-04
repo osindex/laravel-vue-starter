@@ -22,7 +22,7 @@ class Slider extends Model
     // protected $casts = [
     //     'published_at' => 'datetime:Y-m-d H:i:s',
     // ];
-    // dates 导致时区问题
+    // // dates 产生时区问题
     // protected $dates = [
     //     'published_at',
     // ];

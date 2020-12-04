@@ -10,8 +10,8 @@
 ## 安装
 ```
 php artisan key:generate
-php artisan admin:install
 php artisan migrate
+php artisan admin:install
 php artisan db:seed --class="Moell\Mojito\Database\MojitoTableSeeder"
 php artisan db:seed
 # 运行测试数据

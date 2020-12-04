@@ -130,7 +130,7 @@ export default {
             label: '发布时间',
             type: 'datetime',
             valueFormat: 'yyyy-MM-dd HH:mm:ss',
-            value: this.$dayjs().toDate(),
+            value: this.$dayjs().format('YYYY-MM-DD HH:mm:ss'),
             rules: [{
               required: true,
               message: "请选择时间",
